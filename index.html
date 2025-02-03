@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cave Diving</title>
+    <style>
+#Cool {
+  background-color: rgb(108, 103, 103);
+  font-size: 70px;
+  font-family: Comic Sans MS;
+  display: block; 
+  padding: 5px;
+  color: silver;
+  text-align: center;
+  border-radius: 15px;
+  outline-color: black;
+  outline-width: 2px;
+}
+body {
+      background-color: #000000;
+      color: #333;
+      font-family: Georgia, serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+       #Cool1 {
+        font-size: 18px;
+        font-family: Comic Sans MS;
+        padding: 5px;
+        color: silver;
+        text-align: center;
+      }
+      button:hover {
+      background-color: grey;
+      color: #4B3621;
+      transform: scale(1.03);
+    }
+      #secret {
+        font-family: Comic Sans MS;
+      background-color: silver;
+      color: black;
+      border: 2px solid black;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 5px;
+      }
+      button {
+font-family: Comic Sans MS;
+      background-color: silver;
+      color: black;
+      border: 2px solid black;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+     <button id="secret" style="font-size: 0.01px; border-radius: 0.01px;border: 0.01px solid rgb(41, 40, 40); padding: 0.01px 0.01px;;">Don't press me</button>
+    <div id="Cool">
+    Cave Diving Adventure
+    </div>
+    <div id="Cool1">
+    
+    </div>
+    <h1></h1>
+    <button id="Start">Start</button>
+    <button id="Random" style="display: none;">New</button>
+    <button id="Random1" style="display: none;">New1</button>
+    <button id="Random2" style="display: none;">New2</button>
+   
+    <script>
+    var button = document.getElementById('Start')
+    var text1 = document.getElementById('Cool')
+     var text = document.getElementById('Cool1')
+     var random = document.getElementById('Random')
+     var random1 = document.getElementById('Random1')
+     var random2 = document.getElementById('Random2')
+     var secrets = document.getElementById('secret')
+     var cavern = false
+     var stick = false
+     var flint = false
+     secret.addEventListener('click', function(){
+       text.innerText = "Secret tunnel"
+       button.style.display = 'none';
+        random.style.display = 'inline-block';
+        random1.style.display = 'inline-block';
+        random2.style.display = 'inline-block';
+        random1.innerText = "Walk in the tunnel";
+        random2.innerText = "Praise your teacher";
+        random.innerText = "Secret encounter";
+     })
+button.addEventListener('click', function() {
+var randomNumber = Math.floor(Math.random() * 3) + 1;
+      if (randomNumber == 1) {
+        text.innerText = " You drive to a cave entrance";
+        button.style.display = 'none';
+        random.style.display = 'inline-block';
+        random1.style.display = 'inline-block';
+        random2.style.display = 'inline-block';
+        random1.innerText = "Go in";
+        random2.innerText = "Look Around";
+        random.innerText = "Do nothing";
+      } else if (randomNumber == 2) {
+        button.style.display = 'none';
+        random.style.display = 'inline-block';
+        random1.style.display = 'inline-block';
+        random2.style.display = 'inline-block';
+        text.innerText = " You sky dive off of a plane to land to the entrance of a cave";
+                random1.innerText = "Go in";
+        random2.innerText = "Look Around";
+        random.innerText = "Do nothing";
+      } else if (randomNumber == 3) {
+       button.style.display = 'none';
+       
+        random.style.display = 'inline-block';
+        random1.style.display = 'inline-block';
+        random2.style.display = 'inline-block';
+        text.innerText = " You do a back flip break the badguy's neck, and land to the entrance of a cave";
+                random1.innerText = "Go in";
+        random2.innerText = "Look Around";
+        random.innerText = "Do nothing";
+      } 
+});
+random.addEventListener('click', function() {
+  if (random.innerText == "Do nothing") {
+    var randomNumber = Math.floor(Math.random() * 3) + 1;
+    if (randomNumber == 1) {
+    text.innerText = "You shuffle your feet nervously"
+    } else if (randomNumber == 2) {
+      text.innerText = "You pick your nose"
+    } else if (randomNumber == 3) {
+      text.innerText = "You fall asleep for an hour before waking up"
+    }
+  } else if (random.innerText == "Pick it up") {
+    if (cavern == false) {
+      stick = true
+    text.innerText = "You gained stick."
+                        random1.innerText = "Go in";
+        random2.innerText = "Look Around";
+        random.innerText = "Do nothing";
+    } else {
+      stick = true
+      text.innerText = "You gained stick."
+      random1.innerText = "Spark flint and stick"
+    random.innerText = "Do nothing";
+   random2.innerText = "Wander";
+    }
+    
+  } else if (random.innerText == "Challenge") {
+    text.innerText = "He roundhouse kicks you. You die"
+    stick = false 
+          random.style.display = 'none';
+       random1.style.display = 'none';
+       random2.style.display = 'none';
+       button.style.display = 'inline-block';
+  } else if (random.innerText == "Shout") {
+    text.innerText = "You shout loudly, your voice echoing throughout the cave. A terrible roar responds."
+            random.innerText = "Shout";
+        random1.innerText = "Walk in further";
+        random2.innerText = "Leave";
+    
+  } else if (random.innerText == "Walk towards it") {
+    text.innerText = "As you walk towards the sound, you notice that the cave has two paths."
+            random.innerText = "Walk to the left path";
+        random1.innerText = "Walk to the right path";
+        random2.innerText = "Leave";
+    
+  } else if (random.innerText == "Walk to the left path") {
+    text.innerText = "You take a left, wondering why you supported Kamala Harris. As you walk, you fall into a deep hole. You die"
+
+        stick = false 
+          random.style.display = 'none';
+       random1.style.display = 'none';
+       random2.style.display = 'none';
+       button.style.display = 'inline-block';
+  } else if (random.innerText == "Shout for help") {
+    text.innerText = "You yell desperately for help as the beast closes in, as you scream for dear life; Chuck Norris backflips into the cave and roundhouse kicks the ground, destroying the earth. You die."
+
+        stick = false 
+          random.style.display = 'none';
+       random1.style.display = 'none';
+       random2.style.display = 'none';
+       button.style.display = 'inline-block';
+  } else if (random.innerText == "Attack") {
+    text.innerText = "You attack the dog. As you swing your stick at its head, Chuck Norris flips in front of you and grabs your stick, then breaks it with his pinky.";
+        stick = false 
+      random1.innerText = "Beg for mercy";
+      random2.innerText = "Attempt to leave";
+      random.innerText = "Challenge";
+  } else if (random.innerText == "Secret encounter") {
+    text.innerText = "As you walk into the entrance of a secret tunnel, Emma Lattulipe comes and throws you back to the start area for trying to be a teachers pet to Colton.";
+    random1.innerText = "Go in";
+    random2.innerText = "Look Around";
+    random.innerText = "Do nothing";
+  }  else if (random.innerText == "Middle Path") {
+    text.innerText = "You start walking straight ahead, not really knowing anything about politics. As you walk through, you realize you backtracked to the entrance."; 
+    random1.innerText = "Go in";
+    random2.innerText = "Look Around";
+    random.innerText = "Do nothing";
+  } 
+  
+});
+random1.addEventListener('click', function() {
+  if (random1.innerText == "Go in") {
+    var randomNumber = Math.floor(Math.random() * 4) + 1;
+    if (randomNumber == 1) {
+      text.innerText = "You Go into the cave";
+      random1.innerText = "Walk in further";
+      random2.innerText = "Leave";
+      random.innerText = "Shout";
+    } else if (randomNumber == 2) {
+      text.innerText = "You backflip into the cave";
+      random1.innerText = "Walk in further";
+      random2.innerText = "Leave";
+      random.innerText = "Shout";
+    } else if (randomNumber == 3) {
+      text.innerText = "You fly into the cave";
+      random1.innerText = "Walk in further";
+      random2.innerText = "Leave";
+      random.innerText = "Shout";
+    } else if (randomNumber == 4) {
+      text.innerText = "You roll into the cave";
+      random1.innerText = "Walk in further";
+      random2.innerText = "Leave";
+      random.innerText = "Shout";
+    } else if (randomNumber == 5) {
+      text.innerText = "You crawl into the cave";
+      random1.innerText = "Walk in further";
+      random2.innerText = "Leave";
+      random.innerText = "Shout";
+    } else if (randomNumber == 6) {
+      text.innerText = "You spin into the cave";
+      random1.innerText = "Walk in further";
+      random2.innerText = "Leave";
+      random.innerText = "Shout";
+    } else if (randomNumber == 7) {
+      text.innerText = "You fly into the cave";
+      random1.innerText = "Walk in further";
+      random2.innerText = "Leave";
+      random.innerText = "Shout";
+    }
+  } else if (random1.innerText == "Leave it") {
+    text.innerText = "You walk away from the stick. Boring";
+    random1.innerText = "Go in";
+    random2.innerText = "Look Around";
+    random.innerText = "Do nothing";
+  } else if (random1.innerText == "Say hi") {
+    text.innerText = "You greet the master of all things great, he nods with the nodding of a great master.";
+    random1.innerText = "Go in";
+    random2.innerText = "Look Around";
+    random.innerText = "Do nothing";
+  } else if (random1.innerText == "Walk in further") {
+    text.innerText = "You walk deeper into the cave, the figure of a beast is visible in the distant dark.";
+    random1.innerText = "Throw Stick";
+    random2.innerText = "Leave";
+    random.innerText = "Walk towards it";
+  }
+  else if (random1.innerText == "Throw Stick") {
+    if (stick) {
+    text.innerText = "You throw the stick. After a moment, you hear a sound strangly familiar to a bark, after a few seconds, a small dog comes toward you, stick in mouth.";
+    random1.innerText = "Win game";
+    random2.innerText = "Leave";
+    random.innerText = "Attack";
+    } else {
+      text.innerText = "You realize you have no stick, after a few seconds, your eyes hurt from strain of looking in the dark for too long, and you cover them with your hands. As your eyesight is blurred, you walk mindlessly into the cave, deeper. There are three paths ahead.";
+      random1.innerText = "Left Path";
+    random2.innerText = "Right Path";
+    random.innerText = "Middle Path";
+    } 
+  } else if (random1.innerText == "Win game") {
+    text.innerText = "You've won. Hurrah, now tell your teacher to give you happy praises. And if his name is Colton.. Make him a game called Cave Diving Adventure";
+    random.style.display = 'none';
+       random1.style.display = 'none';
+       random2.style.display = 'none';
+       button.style.display = 'inline-block';
+  } else if (random1.innerText == "Walk to the right path") {
+    text.innerText = "You take a right, relived that you are a MAGA supporter. As you walk, you can see the beast's outline clearly. its preparing to strike"
+            random.innerText = "Shout for help";
+        random1.innerText = "Throw Stick";
+        random2.innerText = "Leave";
+
+  } else if (random1.innerText == "Beg for mercy") {
+    text.innerText = "You get on your knees, pleading the great titan of the known world to spare your life; he responds with a roundhouse kick, non-lethal. You are sent flying out of the cave, and you lost your Stick"
+    stick = false 
+    random1.innerText = "Go in";
+    random2.innerText = "Look Around";
+    random.innerText = "Do nothing";
+} else if (random1.innerText == "Walk in the tunnel") {
+    text.innerText = "You walk into the tunnel, goosebumps trailing up your spine from the excitment of such a secret. The cave is the holding area for a trophy with a inscription: Aidan wins."
+    stick = false
+    cavern = false
+    flint = false          
+    random.style.display = 'none';
+       random1.style.display = 'none';
+       random2.style.display = 'none';
+            button.style.display = 'inline-block';
+} else if (random1.innerText == "Left Path") {
+    text.innerText = "You start walking to the left side of the cave, regreting that Trump won the election. As you wander, no end in sight; there is a stick in front of you"
+             
+          random1.innerText = "Eat it"
+    random.innerText = "Pick it up";
+     
+       random2.innerText = "Break it";
+} else if (random1.innerText == "Eat it") {
+    text.innerText = "You attempt to shove the stick in your mouth, you choke and die. Idiot."
+             stick = false
+    random.style.display = 'none';
+       random1.style.display = 'none';
+       random2.style.display = 'none';
+            button.style.display = 'inline-block';
+} else if (random1.innerText == "Go in deeper") {
+  
+    text.innerText = "You wiggle into the hole deeper, every instinct in your body resisting. As you finally get some traction, you slip out, and fall into a cavern."
+    random1.innerText = "Wander"
+    random.innerText = "Do nothing";
+     
+       random2.innerText = "Shout";
+} else if (random1.innerText == "Wander") {
+  var randomNumber = Math.floor(Math.random() * 3) + 1;
+    if (randomNumber == 1) {
+      if (stick) {
+        text.innerText = "You WOULD have found a stick, but you already have one.";
+    random1.innerText = "Spark flint and stick"
+    random.innerText = "Do nothing";
+       random2.innerText = "Wander";
+      } else {
+        text.innerText = "You find a stick on the ground of the cave. This looks like a good stick.";
+        random.innerText = "Pick it up";
+        random1.innerText = "";
+        random2.innerText = "";
+      }
+
+    } else if (randomNumber == 2) {
+      if (stick) {
+        text.innerText = "You WOULD have found some flint, but you already have some.";
+      } else {
+        text.innerText = "You find some flint along the rocks of the cavern."
+      random1.innerText = "Pick it up";
+       random.innerText = "";
+       random2.innerText = "";
+      }
+
+    } else if (randomNumber == 3) {
+      text.innerText = "You find a rock"
+    }
+} else if (random1.innerText == "Pick it up") {
+    text.innerText = "You gain flint."
+    flint = true
+    random1.innerText = "Spark flint and stick"
+    random.innerText = "Do nothing";
+   random2.innerText = "Wander";
+} else if (random1.innerText == "Spark flint and stick") {
+  if (stick && flint) { 
+      text.innerText = "You clash the branch and the flint together, making a torch. You see the exit of the cavern";
+      random1.innerText = "Walk in the tunnel";
+      random.innerText = "Do nothing";
+      random2.innerText = "Shout";
+  } else {
+    text.innerText = "You don't have flint/stick";
+  }
+}
+});
+random2.addEventListener('click', function() {
+  if (random2.innerText == "Look Around") {
+    var randomNumber = Math.floor(Math.random() * 3) + 1;
+    if (randomNumber == 1) {
+      if (stick) {
+        text.innerText = "You WOULD have found a stick, but you already have one.";
+      } else {
+        text.innerText = "You find a stick on the ground. This looks like a good stick.";
+        random.innerText = "Pick it up";
+        random1.innerText = "Leave it";
+        random2.innerText = "Break it";
+      }
+     } else if (randomNumber == 2) {
+      text.innerText = "You find a poster of Arnold Schwarzenegger. Hasta la vista, baby"
+    } else if (randomNumber == 3) {
+      text.innerText = "You find Chuck Norris doing backwards pushups"
+      random1.innerText = "Say hi";
+        random2.innerText = "Leave";
+        random.innerText = "Challenge";
+    }
+    
+  } else if (random2.innerText == "Break it") {
+    text.innerText = "You broke the stick, shame on you."
+                    random1.innerText = "Go in";
+        random2.innerText = "Look Around";
+        random.innerText = "Do nothing";
+  } else if (random2.innerText == "Leave") {
+    text.innerText = "You left."
+                    random1.innerText = "Go in";
+        random2.innerText = "Look Around";
+        random.innerText = "Do nothing";
+  } else if (random2.innerText == "Attempt to leave") {
+    if (cavern) {
+ text.innerText = "You try to crawl out of the large crevice, but fail terribly."
+ random1.innerText = "Go in deeper";
+        random2.innerText = "Attempt to leave";
+        random.innerText = "Do nothing";
+    } else {
+      text.innerText = "As you crawl away from the master of all things Norris, he scoffs. He flicks his fingers and the universe is immidiately destroyed, and now an empire of roundhouse kicks are present. You die."
+              random.style.display = 'none';
+       random1.style.display = 'none';
+       random2.style.display = 'none';
+            button.style.display = 'inline-block';
+    }
+
+  } else if (random2.innerText == "Praise your teacher") {
+    text.innerText = "You shout out in the sky, for no one in particular: I had a great teacher!"
+              random.style.display = 'none';
+       random1.style.display = 'none';
+       random2.style.display = 'none';
+            button.style.display = 'inline-block';
+  } else if (random2.innerText == "Right Path") {
+    cavern = true
+    text.innerText = "As you walk to the right side of the cave, you feel a great sense of relief that you voted for Trump. You walk down the path, and you suddenly slip down a hole."
+    random1.innerText = "Go in deeper";
+        random2.innerText = "Attempt to leave";
+        random.innerText = "Do nothing";
+  } else if (random2.innerText == "Wander") {
+  var randomNumber = Math.floor(Math.random() * 3) + 1;
+    if (randomNumber == 1) {
+      if (stick) {
+        text.innerText = "You WOULD have found a stick, but you already have one.";
+    random1.innerText = "Wander"
+    random.innerText = "Do nothing";
+       random2.innerText = "Shout";
+      } else {
+        text.innerText = "You find a stick on the ground of the cave. This looks like a good stick.";
+        random.innerText = "Pick it up";
+        random1.innerText = "";
+        random2.innerText = "";
+      }
+
+    } else if (randomNumber == 2) {
+      if (flint) {
+        text.innerText = "You WOULD have found some flint, but you already have some.";
+      } else {
+        text.innerText = "You find some flint along the rocks of the cavern."
+      random1.innerText = "Pick it up";
+       random.innerText = "";
+       random2.innerText = "";
+      }
+
+    } else if (randomNumber == 3) {
+      text.innerText = "You find a rock"
+    }
+  } else if (random2.innerText == "Shout") {
+    text.innerText = "Your voice echos throughout the cavern, seemingly endless."
+    random1.innerText = "Wander"
+    random.innerText = "Do nothing";
+       random2.innerText = "Shout";
+  }
+});
+
+    </script>
+  </body>
+</html>
+
+    </script>
+  </body>
+</html>
+
